@@ -1,5 +1,12 @@
 # Salesforce App
 
+VSCODE SALESFORCE - GUIDE
+https://www.youtube.com/watch?v=7qR0c8h5cCU
+
+
+TO Execute the Classes:
+tools -> create tempApex.input file
+
 This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
 
 ## Part 1: Choosing a Development Model

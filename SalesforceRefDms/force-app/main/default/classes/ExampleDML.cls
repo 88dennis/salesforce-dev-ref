@@ -1,9 +1,6 @@
 public with sharing class ExampleDML {
    
-
-
     public static void runner(){
-
         ExampleDML dml1 = new ExampleDML();
         dml1.dmlStatements();
         //Insert Record Method
@@ -15,6 +12,8 @@ public with sharing class ExampleDML {
 
         //Read Records
         // dml1.readRecords();
+        // dml1.insertSomething();
+        dml1.updateSomething();
     }
 
     public void dmlStatements(){
@@ -58,7 +57,6 @@ public with sharing class ExampleDML {
         System.debug(accList);
     }
 
-
     public void fetchAndDeleteRecords(){
          //DELETE THE LIST YOU CREATED
         List <Account> accList2 = new List<Account>();
@@ -66,7 +64,6 @@ public with sharing class ExampleDML {
         System.debug(accList2);
         delete accList2;
     }
-
 
     public void fetchAndUpdateRecords(){
         //DELETE THE LIST YOU CREATED
@@ -81,7 +78,6 @@ public with sharing class ExampleDML {
 
     System.debug('updated accList ' + accList);
    }
-
 
    public void fetchAndUpsertRecords(){
 
@@ -116,4 +112,20 @@ public with sharing class ExampleDML {
     accList = [SELECT Name, NumberOfEmployees FROM Account WHERE Name LIKE '%Updated%' OR Name LIKE '%Upserted%' order by Name ];
     System.debug(accList);
    }
+
+   public void insertSomething(){
+       //In order to manipulate the data in the database you need to provide the REQUIRED FIELD VALUE
+       //Use the FIELD NAME as attribute and assign a value to it inside the constructor
+       Account acc1 = new Account(Name='Acct1ByDMS');
+       insert acc1;
+   }
+
+   public void updateSomething(){
+       Account myAcct = [Select id,Name,billingCity from Account where Name='Acct1ByDMS' LIMIT 1 ];
+       System.debug(myAcct);
+       myAcct.BillingCity='Melbourne';
+       update myAcct;
+    }
+
+    
 }

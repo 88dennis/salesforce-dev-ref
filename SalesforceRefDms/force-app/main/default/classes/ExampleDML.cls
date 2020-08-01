@@ -101,6 +101,20 @@ public with sharing class ExampleDML {
     System.debug('accList ' + accList );
     System.debug('accList SIZE ' + accList.size() );
 
+
+    //-------------------------
+
+    Account[] accList2 = [Select Name,BillingCity from Account where Name = 'Dennis'];
+    for(Account acct2 : accList2){
+        acct2.BillingCity = 'Dallas';
+    }
+
+    Account newAcct = new Account(Name='Account2', BillingCity='Austin');
+        accList2.add(newAcct);
+
+    upsert accList2;
+    //---------------------------------------------------
+
    }
 
    public void fetchAndUndeleteRecords(){

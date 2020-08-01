@@ -35,6 +35,7 @@ public with sharing class ExceptionExample {
 
     public void exceptionExampleList(){
         //trying to access an index that is not available
+        //attempting to access an index that is out of bounds
         try {
             List<Integer> li = new List<Integer>();
             li.add(15);
@@ -127,7 +128,6 @@ public with sharing class ExceptionExample {
                 System.debug('getFieldNames ' + e.getDmlFieldNames(i));
                 System.debug('getDmlMessage ' + e.getDmlMessage(i));
             }
-
         }
     }
 
